@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+  <ul>
+    <li><a href="#" onclick="requestController.request('home');">Home</a></li>
+    <li><a href="#" onclick="requestController.request('user_list');">User</a></li>
+  </ul>
+  <div id="main-app"></div>
+  <script>
+    let env = require('node-env-file');
+    env(__dirname + '/.env');
+    var isDebug = JSON.parse(process.env.APP_DEBUG);
+    
+    if(isDebug) require('electron-connect').client.create();
+     
+    var MessageHelper = require('./app/models/helpers/MessageHelper');
+    var connection = require('./app/models/helpers/ConnectionDataBase');
+    var ErrorsHelper = require('./app/models/helpers/ErrorsHelper'); 
+    var FormHelper = require('./app/models/helpers/FormHelper');
+    
+    let RequestController = require('./app/controllers/RequestController');
+    let requestController = new RequestController(document.querySelector('#main-app'));
+    var controller = null; 
+    requestController.request('home');
+
+    // let BrowserWindow = require('electron').remote.BrowserWindow;
+    // let path = require('path');
+    // let url =  require('url');
+
+    // let modalPath = url.format({
+    //   pathname: path.join(__dirname, 'print.html'),
+    //   protocol: 'file:' 
+    // });
+    // let win = new BrowserWindow({width: 400, height:320});
+    // win.setMenu(null); 
+    // win.on('close',function(){win = null});
+    // win.loadURL(modalPath); 
+    // win.show();
+  </script>
+</body>
+</html>  

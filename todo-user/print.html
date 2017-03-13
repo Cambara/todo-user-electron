@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+      <div id="printer">
+          
+      </div>
+      <script>
+          let p = document.querySelector('#printer');
+          let remote = require('electron').remote;
+          p.innerHTML = remote.getGlobal('teste');
+          window.print();
+      </script>
+    </body>
+</html> 

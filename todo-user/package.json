@@ -1,0 +1,22 @@
+{
+  "name": "todo-user",
+  "productName": "Todo User",
+  "version": "0.1.0",
+  "author": "Tiago Cambará <tiago.cambara21@gmail.com>",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ./app",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/person.png --prune=true --out=release-builds"
+  },
+  "dependencies": {
+    "mysql": "^2.13.0",
+    "node-env-file": "^0.1.8",
+    "pdfmake": "^0.1.26"
+  },
+  "devDependencies": {
+    "electron": "^1.4.3",
+    "electron-connect": "^0.6.1",
+    "electron-packager": "^8.1.0",
+    "gulp": "^3.9.1"
+  }
+}
